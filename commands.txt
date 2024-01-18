@@ -26,12 +26,12 @@ Rebase : (Your branch will be moved and rebased to another branch HEAD)
 2. git rebase —onto <new_parent> <old_parent>
 
 Interactive rebase(Most powerful command):    —> merge commits, split commits, remove commits , edit changes etc.
-	a. change file changes in commit and commit message in any commit
+a. change file changes in commit and commit message in any commit
     1. git rebase -i HEAD~2
     2. (edit changes in vi editor) git add filename
     3. git rebase —continue
 
-	b. split commit
+b. split commit
     1. git rebase -i HEAD~2 (where you want to split commit)
     2. git reset HEAD~  (*_imp_*)
     3. git add files_1

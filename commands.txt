@@ -1,0 +1,60 @@
+Git exercises francz
+
+Git concepts = based on linked list concept.
+
+General:
+1. git add filename                               —> add to staging area
+        * git restore —staged filename   —> remove from staging area & revert to the changes before & file is still tracked further
+        * git add —patch filename  (and press ‘e’)      —>To add part of file
+2. git commit -m “message”
+        * git reset HEAD~             —> remove the latest commit and add changes in the working tree
+3. git commit —amend (—date=“Mon Mar 16 23:06:01 2015 +0100”)                         —> To amend the last commit
+4. git push origin branch
+
+Delete branch Locally & remote:
+1. Locally - git branch -D ‘local_branch’
+2. remote - git push -d remote_branch
+
+Merge conflict:
+1. git checkout local_branch
+2. git merge more_code_branch
+3. git add filename & git merge —continue (After changes do this, in case of merge conflict)
+4. git merge —abort (To abort)
+
+Rebase : (Your branch will be moved and rebased to another branch HEAD)
+1. git rebase another_branch
+2. git rebase —onto <new_parent> <old_parent>
+
+Interactive rebase(Most powerful command):    —> merge commits, split commits, remove commits , edit changes etc.
+	a. change file changes in commit and commit message in any commit
+    1. git rebase -i HEAD~2
+    2. (edit changes in vi editor) git add filename
+    3. git rebase —continue
+
+	b. split commit
+    1. git rebase -i HEAD~2 (where you want to split commit)
+    2. git reset HEAD~  (*_imp_*)
+    3. git add files_1
+    4. git commit
+    5. git add files_2
+    6. git commit
+    7. git rebase —continue
+
+Git history:
+1. git log                 —> commit history
+    * git log --oneline --since="2022-04-22" --until="2022-04-24" —author=“fasid”
+    * git log -p -2         —> show git log with diff for last two commits
+2. git reflog            —> command history (*_imp_*)
+
+General linux commands:
+1. git rm filename
+2. git cp filename1 filename2
+3. git mv filename1 filename2 
+
+Ignore the files added in git repository:
+1. add in .gitignore file
+2. If file already being tracked, then git rm filename
+
+Reset pointer:
+1. git reset —hard commit_name (pointer moves and commits will be deleted)
+2. git reset —soft commit_name (pointer moves and commits will be present)
